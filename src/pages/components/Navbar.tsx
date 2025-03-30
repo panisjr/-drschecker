@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 const Navbar = () => {
   return (
     <div className="flex items-center justify-around p-5 poppins-regular border-b border-b-slate-900">
@@ -18,9 +19,12 @@ const Navbar = () => {
       </div>
       <div className="flex items-center gap-3">
         <button className="cursor-pointer">Sign In</button>
-        <button className="bg-slate-900 p-3 rounded-md text-white cursor-pointer border border-slate-900 hover:bg-white hover:text-slate-900 hover:border hover:border-slate-900 duration-300">
+        <Link
+          href={"/signUp"}
+          className="bg-slate-900 p-3 rounded-md text-white cursor-pointer border border-slate-900 hover:bg-white hover:text-slate-900  duration-300"
+        >
           Sign Up
-        </button>
+        </Link>
       </div>
     </div>
   );
