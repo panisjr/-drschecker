@@ -1,20 +1,40 @@
 import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+import { Typewriter } from "react-simple-typewriter";
 export default function Home() {
   return (
-    <div>
-      This is landing page
+    <div className="flex flex-col items-center justify-center p-20 gap-5">
+      <div>
+        <h1 className="text-3xl font-bold">
+          <Typewriter
+            words={[
+              "Hi, I'm Ramel!",
+              "Building with React-Typescript Application",
+              "Hope you like!",
+            ]}
+            loop={Infinity}
+            cursor
+            cursorStyle="|"
+            typeSpeed={50}
+            deleteSpeed={30}
+            delaySpeed={1000}
+          />
+        </h1>
+      </div>
+      <div className="flex items-center gap-5">
+        <div className="relative w-[430px] max-w-[430px] aspect-[430/310.41] flex flex-col justify-around">
+          <Image
+            src={"/images/robot.jpg"}
+            className="rounded-md"
+            sizes="(max-width: 768px) 100vw, 430px"
+            alt="Blog Image"
+            fill
+            priority
+          />
+        </div>
+        <div>
+          <i>Better to wait than force things to happen :)</i>
+        </div>
+      </div>
     </div>
   );
 }
