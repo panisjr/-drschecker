@@ -5,7 +5,7 @@ import { FaTiktok } from "react-icons/fa";
 import Image from "next/image";
 const Footer = () => {
   return (
-    <footer className="flex p-5 bg-cyan-500 text-white px-40 gap-10">
+    <footer className="flex p-5 bg-cyan-500 text-white px-40 gap-10 poppins-regular">
       <div className="flex flex-col gap-5">
         <p className="font-bold text-2xl">Contact Me</p>
         <div className="flex flex-col gap-2">
