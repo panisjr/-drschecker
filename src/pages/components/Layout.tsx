@@ -10,8 +10,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const router = useRouter();
-  const [isReady, setIsReady] = useState(false);
-
+  const [isReady, setIsReady] = useState<boolean>(false);
   useEffect(() => {
     if (router.isReady) setIsReady(true);
   }, [router.isReady]);

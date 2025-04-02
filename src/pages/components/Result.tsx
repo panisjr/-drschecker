@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-const Result = () => {
+
+interface ScoreProps {
+  score: String;
+}
+const Result: React.FC<ScoreProps> = ({ score }) => {
   return (
-    <div className="flex flex-col items-start p-10 bg-cyan-500 text-white gap-5 poppins-regular rounded-md sticky bottom-5">
+    <div className="flex flex-col items-start p-10 bg-cyan-500 text-white gap-5 poppins-regular rounded-md sticky bottom-1">
       <div className="flex items-start gap-10">
         <div className="p-2">
-          <div>
-            <span className="text-2xl font-semibold">4</span> <span className="text-gray-100">points</span>
+          <div className="flex items-center gap-2">
+            <span className="text-2xl font-semibold">{score || "0"}</span>
+            <span className="text-gray-100">points</span>
           </div>
           <p>DRSchecker-Score</p>
         </div>
