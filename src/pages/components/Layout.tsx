@@ -19,21 +19,21 @@ export default function Layout({ children }: LayoutProps) {
   if (!isReady) return null;
 
   const excludePage = ["/signUp", "/signIn"];
-  const excludeFooter = ["/dashboard", "/createBlog"];
+  // const excludeFooter = ["/dashboard"];
 
   const showNavbar = !excludePage.includes(router.pathname);
-  const showFooter = showNavbar && !excludeFooter.includes(router.pathname);
+  // const showFooter = showNavbar && !excludeFooter.includes(router.pathname);
 
   return (
     <>
       {showNavbar && <Navbar
-       inDashboard={
-        router.pathname.includes("/dashboard") ||
-        router.pathname.includes("/createBlog")
+       isDashboard={
+        router.pathname.includes("/dashboard")
       }
       />}
       <main className="content">{children}</main>
-      {showFooter && <Footer />}
+      {<Footer />}
+      {/* {showFooter && <Footer />} */}
     </>
   );
 }

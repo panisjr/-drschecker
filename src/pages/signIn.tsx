@@ -48,13 +48,13 @@ const signIn = () => {
         </div>
         {/* Sign In Button */}
         <div className="w-full flex items-center justify-center border-b pb-8">
-          <Link href={'/dashboard'} className="flex items-center justify-center bg-yellow-500 border border-yellow-500 w-full py-2 rounded-md cursor-pointer hover:bg-white duration-300">
+          <Link href={'/dashboard'} className="flex items-center justify-center bg-cyan-500 border border-cyan-500 w-full py-2 rounded-md cursor-pointer hover:bg-white duration-300">
             Sign In
           </Link>
         </div>
         <div className="flex items-center gap-2">
           <i>Don't have an account?</i>
-          <Link href={"/signUp"} className="text-yellow-500">
+          <Link href={"/signUp"} className="text-cyan-500">
             Sign Up
           </Link>
         </div>

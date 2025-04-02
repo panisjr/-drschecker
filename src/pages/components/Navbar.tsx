@@ -3,17 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface NavbarProps {
-  isDashboard: ReactNode;
+  isDashboard: boolean;
 }
-const Navbar = ({ isDashboard }:NavbarProps) => {
+const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
   return (
     <>
-      {isDashboard ? (
+      {!isDashboard ? (
         <>
           <div className="flex items-center justify-around p-5 poppins-regular border-b border-b-slate-900">
             <div className="px-2 flex items-center gap-5">
               <Image
-                src={"/images/aiIcon.png"}
+                src={"/images/logo.png"}
                 alt="Logo"
                 width={40}
                 height={40}
@@ -50,8 +50,7 @@ const Navbar = ({ isDashboard }:NavbarProps) => {
                 <p>Ramz</p>
               </Link>
               <div className="px-2 flex items-center justify-center gap-5">
-                <p className="cursor-pointer">Home</p>
-                <p className="cursor-pointer">About</p>
+                <p className="cursor-pointer">Dashboard</p>
               </div>
             </div>
             <div className="flex items-center gap-3">

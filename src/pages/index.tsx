@@ -23,7 +23,7 @@ export default function Home() {
       <div className="flex items-center gap-5">
         <div className="relative w-[430px] max-w-[430px] aspect-[430/310.41] flex flex-col justify-around">
           <Image
-            src={"/images/robot.jpg"}
+            src={"/images/depression1.jpg"}
             className="rounded-md"
             sizes="(max-width: 768px) 100vw, 430px"
             alt="Blog Image"

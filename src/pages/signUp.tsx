@@ -50,13 +50,13 @@ const signUp = () => {
         </div>
         {/* Sign Up Button */}
         <div className="w-full flex items-center justify-center border-b pb-8">
-          <button className="bg-yellow-500 border border-yellow-500 w-full py-2 rounded-md cursor-pointer hover:bg-white duration-300">
+          <button className="bg-cyan-500 border border-cyan-500 w-full py-2 rounded-md cursor-pointer hover:bg-white duration-300">
             Sign Up
           </button>
         </div>
         <div className="flex items-center gap-2">
           <i>Already have an account?</i>
-          <Link href={"/signIn"} className="text-yellow-500">
+          <Link href={"/signIn"} className="text-cyan-500">
             Sign In
           </Link>
         </div>
