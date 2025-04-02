@@ -2,7 +2,18 @@ import Link from "next/link";
 import React from "react";
 import { FiUser, FiLock } from "react-icons/fi";
 import Image from "next/image";
-const signUp = () => {
+
+interface User {
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+}
+interface UsersProps {
+  users: User[];
+  setUsers: React.Dispatch<React.SetStateAction<User[]>>;
+}
+const signUp: React.FC<UsersProps> = ({ users, setUsers }) => {
   return (
     <div className="w-screen h-screen flex items-center justify-center poppins-regular">
       <div className="flex flex-col items-center justify-center border border-slate-300 shadow-lg shadow-slate-500  rounded-md p-10 gap-10">

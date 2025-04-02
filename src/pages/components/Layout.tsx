@@ -25,11 +25,9 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <>
-      {showNavbar && <Navbar
-       isDashboard={
-        router.pathname.includes("/dashboard")
-      }
-      />}
+      {showNavbar && (
+        <Navbar isDashboard={router.pathname.includes("/dashboard")} />
+      )}
       <main className="content">{children}</main>
       {<Footer />}
       {/* {showFooter && <Footer />} */}
