@@ -2,7 +2,6 @@ import React from "react";
 import { FaInstagram } from "react-icons/fa";
 import { CiFacebook } from "react-icons/ci";
 import { FaTiktok } from "react-icons/fa";
-import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="flex p-5 bg-cyan-500 text-white px-40 gap-10 poppins-regular">
@@ -21,7 +20,7 @@ const Footer = () => {
         <div className="flex gap-5">
           <FaInstagram   className="w-8 h-8"/>
           <CiFacebook className="w-8 h-8" />
-          <FaTiktok  className="w-8 h-8"/>
+          <FaTiktok  className="w-7 h-7"/>
         </div>
       </div>
     </footer>

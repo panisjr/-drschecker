@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Result from "./components/Result";
 
 const dashboard = () => {
   const [data, setData] = useState([
@@ -32,10 +33,14 @@ const dashboard = () => {
     },
   ]);
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center py-5">
+    <div className="w-full h-full flex flex-col items-center justify-center pt-20 pb-5">
       {data &&
         data.map((item, index) => (
-          <div key={index} className="w-full max-w-[900px] flex items-center justify-center poppins-regular p-5 border-b-2 border-gray-200">
+          <div
+            key={index}
+            onClick={() => console.log(item.name)}
+            className="w-full max-w-[900px] flex items-center justify-center poppins-regular p-5 border-b-2 border-gray-200"
+          >
             <div className="w-full md:flex-nowrap flex flex-wrap items-center justify-between gap-3">
               <div className="flex flex-col w-full p-2 bg-white">
                 <p className="font-semibold">{item.name}</p>
@@ -48,7 +53,6 @@ const dashboard = () => {
                       key={`${listIndex}-${index}`}
                       className="w-full flex items-center justify-between px-5 py-3 border-b border-b-gray-400 hover:bg-cyan-100 cursor-pointer"
                     >
-                      {/* Display list item and its corresponding rate */}
                       <span className="font-medium">{list}</span>
                       <span>{listIndex}</span>
                     </button>
@@ -58,6 +62,7 @@ const dashboard = () => {
             </div>
           </div>
         ))}
+      <Result />
     </div>
   );
 };
