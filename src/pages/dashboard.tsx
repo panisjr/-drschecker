@@ -13,33 +13,29 @@ const dashboard = () => {
         "Frequent weeping",
         "Extreme symptoms",
       ],
-      rates: [0, 1, 2, 3, 4],
     },
     {
       name: "Initial insomnia",
       description: "Difficulty falling asleep",
       lists: ["Absent", "Occasional", "Frequent"],
-      rates: [0, 1, 2],
     },
     {
       name: "Insomnia during the night",
       description: "Restless, disturbed, waking at night",
       lists: ["Absent", "Occasional", "Frequent"],
-      rates: [0, 1, 2],
     },
     {
       name: "Delayed insomnia",
       description:
         "Waking in early hours of the morning and unable to fall asleep again",
       lists: ["Absent", "Occasional", "Frequent"],
-      rates: [0, 1, 2],
     },
   ]);
   return (
     <div className="w-full h-full flex flex-col items-center justify-center py-5">
       {data &&
         data.map((item, index) => (
-          <div key={index} className="w-full max-w-[900px] flex items-center justify-center poppins-regular p-5 border-b-2 border-gray-400">
+          <div key={index} className="w-full max-w-[900px] flex items-center justify-center poppins-regular p-5 border-b-2 border-gray-200">
             <div className="w-full md:flex-nowrap flex flex-wrap items-center justify-between gap-3">
               <div className="flex flex-col w-full p-2 bg-white">
                 <p className="font-semibold">{item.name}</p>
@@ -54,7 +50,7 @@ const dashboard = () => {
                     >
                       {/* Display list item and its corresponding rate */}
                       <span className="font-medium">{list}</span>
-                      <span>{item.rates[listIndex]}</span>
+                      <span>{listIndex}</span>
                     </button>
                   </div>
                 ))}
