@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
-interface ScoreProps {
-  score: String;
+export interface ScoreProps {
+  score: number;
 }
 const Result: React.FC<ScoreProps> = ({ score }) => {
   return (
-    <div className="flex flex-col items-start p-10 bg-cyan-500 text-white gap-5 poppins-regular rounded-md sticky bottom-1">
+    <div className="flex flex-col items-start px-10 py-3 bg-cyan-500 text-white gap-5 poppins-regular rounded-md sticky bottom-2">
       <div className="flex items-start gap-10">
         <div className="p-2">
           <div className="flex items-center gap-2">
@@ -15,10 +15,36 @@ const Result: React.FC<ScoreProps> = ({ score }) => {
           </div>
           <p>DRSchecker-Score</p>
         </div>
-        <div className="p-2 border-l border-l-gray-300">
-          <p className="text-2xl font-semibold">Normal</p>
-          <p className="text-gray-100">No Depression</p>
-        </div>
+        {score <= 7 && (
+          <div className="p-2 border-l border-l-gray-300">
+            <p className="text-2xl font-semibold">Normal</p>
+            <p className="text-gray-100">No Depression</p>
+          </div>
+        )}
+        {score >= 8 && score <= 13 && (
+          <div className="p-2 border-l border-l-gray-300">
+            <p className="text-2xl font-semibold">Mild</p>
+            <p className="text-gray-100">Depression</p>
+          </div>
+        )}
+        {score >= 14 && score <= 18 && (
+          <div className="p-2 border-l border-l-gray-300">
+            <p className="text-2xl font-semibold">Modarate</p>
+            <p className="text-gray-100">Depression</p>
+          </div>
+        )}
+        {score >= 19 && score <= 22 &&(
+          <div className="p-2 border-l border-l-gray-300">
+            <p className="text-2xl font-semibold">Severe</p>
+            <p className="text-gray-100">Depression</p>
+          </div>
+        )}
+        {score >= 23 &&(
+          <div className="p-2 border-l border-l-gray-300">
+            <p className="text-2xl font-semibold">Very Severe</p>
+            <p className="text-gray-100">Depression</p>
+          </div>
+        )}
       </div>
       <div className="w-full flex items-end justify-end">
         <button className="flex items-center gap-2 cursor-pointer bg-[#125a8d] hover:bg-white hover:text-black duration-200 p-3 rounded-md">
