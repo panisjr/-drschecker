@@ -1,64 +1,116 @@
+import { useState } from "react";
+import Swal from "sweetalert2";
+import { AuthProps} from "./types";
+import { useUser } from "./UserHook";
+import { useRouter } from "next/router";
 import Link from "next/link";
-import React from "react";
-import { FiUser, FiLock } from "react-icons/fi";
-import Image from "next/image";
-const signIn = () => {
+
+const signIn: React.FC<AuthProps> = ({ users }) => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const router = useRouter();
+
+  // Getting the current logged in user
+  const { setCurrentUser } = useUser();
+
+  const handleSignIn = (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+    const foundUser = users.find((user) => user.email === email);
+    if (!foundUser) {
+      Swal.fire({
+        icon: "error",
+        title: "Signing In!",
+        text: "Can't find your account, make sure you fill the fields correctly.",
+      });
+    } else if (email === "") {
+      Swal.fire({
+        icon: "error",
+        title: "Signing In!",
+        text: "Email field is empty.",
+      });
+    } else if (password === "") {
+      Swal.fire({
+        icon: "error",
+        title: "Signing In!",
+        text: "Password field is empty.",
+      });
+    } else if (foundUser?.email != email || foundUser?.password != password) {
+      Swal.fire({
+        icon: "error",
+        title: "Signing In!",
+        text: "Your Email or Password is incorrect.",
+      });
+    }
+    if (foundUser?.email === email && foundUser?.password === password) {
+      setCurrentUser(foundUser);
+      router.push("/dashboard");
+      setEmail("");
+      setPassword("");
+    }
+  };
   return (
     <div className="w-screen h-screen flex items-center justify-center poppins-regular">
-      <div className="flex flex-col items-center justify-center border border-slate-300 shadow-lg shadow-slate-500  rounded-md p-10 gap-10">
+      <form
+        onSubmit={handleSignIn}
+        className="flex flex-col items-center justify-center border border-slate-300 shadow-lg shadow-slate-500 rounded-md p-10 gap-10"
+      >
+        {/* Logo */}
         <div className="flex items-start w-full">
-          <Link href={"/"} className="flex items-center gap-3">
-            <Image
-              src={"/images/logo.png"}
-              alt="Logo"
-              width={40}
-              height={40}
-              className="cursor-pointer"
-            />
+          <Link href="/" className="flex items-center gap-3">
+            <img src="/images/logo.png" className="cursor-pointer w-14 h-14" />
             <p>Ramz</p>
           </Link>
         </div>
-        <p className="font-bold text-2xl p-5">Sign In</p>
-        {/* Input */}
+        <p className="font-bold text-2xl">Sign In</p>
+
+        {/* Input Fields */}
         <div className="flex flex-col items-center gap-5">
           <div className="flex items-center gap-3">
-            <FiUser className="w-6 h-6" />
-            <div className="border-b border-b-white-900 px-3 py-2 flex items-center gap-3">
+            <div className="border-b px-3 py-2 flex items-center gap-3">
               <input
-                type="text"
-                name="username"
-                id="username"
+                type="email"
+                name="email"
+                id="email"
                 className="outline-none"
-                placeholder="Username"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <FiLock className="w-6 h-6" />
-            <div className="border-b border-b-white-900 px-3 py-2 flex items-center gap-3">
+            <div className="border-b px-3 py-2 flex items-center gap-3">
               <input
                 type="password"
                 name="password"
                 id="password"
                 className="outline-none"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           </div>
         </div>
+
         {/* Sign In Button */}
         <div className="w-full flex items-center justify-center border-b pb-8">
-          <Link href={'/dashboard'} className="flex items-center justify-center bg-cyan-500 border border-cyan-500 w-full py-2 rounded-md cursor-pointer hover:bg-white duration-300">
+          <button
+            type="submit"
+            className="flex items-center justify-center bg-yellow-500 border border-yellow-500 w-full py-2 rounded-md cursor-pointer hover:bg-white duration-300"
+          >
             Sign In
-          </Link>
+          </button>
         </div>
+
+        {/* Sign Up Link */}
         <div className="flex items-center gap-2">
           <i>Don't have an account?</i>
-          <Link href={"/signUp"} className="text-cyan-500">
+          <Link href="/signUp" className="text-yellow-500">
             Sign Up
           </Link>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

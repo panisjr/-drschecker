@@ -1,6 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { NextApiRequest, NextApiResponse } from 'next';
 import dotenv from 'dotenv';
+import { marked } from 'marked';
 
 dotenv.config();
 
@@ -24,11 +25,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
             let text = response?.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
 
-            // Apply regex to remove '*' and '/'
-            text = text.replace(/[\*/]/g, '');
+            const advice = marked(text);
 
             console.log("Gemini text response:", text);
-            res.status(200).json({ result: text });
+            res.status(200).json({ result: advice });
         } catch (error) {
             console.error('Error generating content:', error);
 

@@ -133,8 +133,8 @@ const Questions = () => {
             </div>
           </div>
         ))}
-      <Result score={totalScore} selectedQuestion={selectedQuestion} />
-      <Advice score={totalScore} />
+      <Result score={totalScore}/>
+      <Advice score={totalScore} selectedQuestion={selectedQuestion} />
     </div>
   );
 };
