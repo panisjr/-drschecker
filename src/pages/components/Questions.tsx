@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Result from "./Result";
 import Advice from "./Advice";
 
-interface QuestionProps {
+export interface QuestionProps {
   question: string;
   description: string;
   choices: string[];
@@ -15,8 +15,10 @@ const Questions = () => {
     [key: string]: string | null;
   }>({});
 
-  const [selectedQuestion, setSelectedQuestion] = useState<{question: string; choiceIndex: number}[]>([]);
-  const [data, setData] = useState([
+  const [selectedQuestion, setSelectedQuestion] = useState<
+    { question: string; choice: string; choiceIndex: number }[]
+  >([]);
+  const [data, setData] = useState<QuestionProps[]>([
     {
       question: "Depression Mood",
       description:
@@ -60,36 +62,38 @@ const Questions = () => {
       ...prev,
       [question.question]: choice,
     }));
-  
+
     setSelectedQuestion((prevSelected) => {
       const foundSelectedQuestion = prevSelected.some(
         (q) => q.question === question.question
       );
-  
+
       let newPoints = points;
-  
+
       if (foundSelectedQuestion) {
         const previousSelection = prevSelected.find(
           (q) => q.question === question.question
         );
-  
+
         if (previousSelection) {
           newPoints -= question.values[previousSelection.choiceIndex];
         }
-        
-        newPoints += question.values[choiceIndex]; 
+
+        newPoints += question.values[choiceIndex];
       } else {
-        newPoints += question.values[choiceIndex]; 
+        newPoints += question.values[choiceIndex];
       }
-  
+
       setPoints(newPoints);
       setTotalScore(newPoints);
-  
-      return [...prevSelected.filter((q) => q.question !== question.question), 
-              { question: question.question, choiceIndex }];
+      console.log("Selected question: ", selectedQuestion);
+      return [
+        ...prevSelected.filter((q) => q.question !== question.question),
+        { question: question.question, choice, choiceIndex },
+      ];
     });
   };
-  
+
   return (
     <div className="w-full h-full flex flex-col items-center justify-center pt-20 pb-5">
       {data &&
@@ -129,7 +133,7 @@ const Questions = () => {
             </div>
           </div>
         ))}
-      <Result score={totalScore} />
+      <Result score={totalScore} selectedQuestion={selectedQuestion} />
       <Advice score={totalScore} />
     </div>
   );
