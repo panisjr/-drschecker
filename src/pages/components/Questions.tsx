@@ -6,6 +6,7 @@ interface QuestionProps {
   question: string;
   description: string;
   choices: string[];
+  values: number[];
 }
 const Questions = () => {
   const [points, setPoints] = useState<number>(0);
@@ -14,8 +15,7 @@ const Questions = () => {
     [key: string]: string | null;
   }>({});
 
-  const [selectedQuestion, setSelectedQuestion] = useState<string>("");
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [selectedQuestion, setSelectedQuestion] = useState<{question: string; choiceIndex: number}[]>([]);
   const [data, setData] = useState([
     {
       question: "Depression Mood",
@@ -28,22 +28,26 @@ const Questions = () => {
         "Frequent weeping",
         "Extreme symptoms",
       ],
+      values: [0, 1, 2, 3, 4],
     },
     {
       question: "Initial insomnia",
       description: "Difficulty falling asleep",
       choices: ["Absent", "Occasional", "Frequent"],
+      values: [0, 1, 2],
     },
     {
       question: "Insomnia during the night",
       description: "Restless, disturbed, waking at night",
       choices: ["Absent", "Occasional", "Frequent"],
+      values: [0, 1, 2],
     },
     {
       question: "Delayed insomnia",
       description:
         "Waking in early hours of the morning and unable to fall asleep again",
       choices: ["Absent", "Occasional", "Frequent"],
+      values: [0, 1, 2],
     },
   ]);
 
@@ -52,33 +56,40 @@ const Questions = () => {
     choice: string,
     choiceIndex: number
   ) => {
-    setSelectedItems((prev) => {
-      if (prev[question.question] === choice) {
-        return prev;
+    setSelectedItems((prev) => ({
+      ...prev,
+      [question.question]: choice,
+    }));
+  
+    setSelectedQuestion((prevSelected) => {
+      const foundSelectedQuestion = prevSelected.some(
+        (q) => q.question === question.question
+      );
+  
+      let newPoints = points;
+  
+      if (foundSelectedQuestion) {
+        const previousSelection = prevSelected.find(
+          (q) => q.question === question.question
+        );
+  
+        if (previousSelection) {
+          newPoints -= question.values[previousSelection.choiceIndex];
+        }
+        
+        newPoints += question.values[choiceIndex]; 
+      } else {
+        newPoints += question.values[choiceIndex]; 
       }
-      return {
-        ...prev,
-        [question.question]: choice,
-      };
+  
+      setPoints(newPoints);
+      setTotalScore(newPoints);
+  
+      return [...prevSelected.filter((q) => q.question !== question.question), 
+              { question: question.question, choiceIndex }];
     });
-
-    if (selectedQuestion === question.question) {
-      setPoints((prevPoints) => {
-        const newPoints = prevPoints - selectedIndex + choiceIndex;
-        setTotalScore(newPoints);
-        return newPoints;
-      });
-    } else {
-      setPoints((prevPoints) => {
-        const newPoints = prevPoints + choiceIndex;
-        setTotalScore(newPoints);
-        return newPoints;
-      });
-    }
-    setSelectedQuestion(question.question);
-    setSelectedIndex(choiceIndex);
   };
-
+  
   return (
     <div className="w-full h-full flex flex-col items-center justify-center pt-20 pb-5">
       {data &&
