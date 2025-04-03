@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <button className="cursor-pointer">Sign In</button>
+              <Link href={"/signIn"} className="cursor-pointer">Sign In</Link>
               <Link
                 href={"/signUp"}
                 className="bg-slate-900 p-3 rounded-md text-white cursor-pointer border border-slate-900 hover:bg-white hover:text-slate-900  duration-300"
