@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center p-20 gap-5">
+    <div className="flex flex-col items-center justify-center px-20 pt-40 gap-5">
       <div>
         <h1 className="text-3xl font-bold">
           <Typewriter

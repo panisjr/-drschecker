@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
+import { UseUser } from "../UserHook";
 interface NavbarProps {
   isDashboard: boolean;
 }
 const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
   const router = useRouter();
-
+  const { currentUser } = UseUser();
   const logout = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -28,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
     <>
       {!isDashboard ? (
         <>
-          <div className="w-screen flex items-center justify-around p-5 poppins-regular border-b border-b-slate-900">
+          <div className="w-screen flex items-center justify-around p-5 poppins-regular border-b border-b-slate-900 fixed">
             <div className="px-2 flex items-center gap-5">
               <Image
                 src={"/images/logo.png"}
@@ -72,7 +73,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <p>Welcome, Ramel</p>
+              <p>Welcome, {currentUser?.firstname || "Guest"} !</p>
               <div
                 className="relative inset-0 w-12 h-12 cursor-pointer"
                 onClick={() => logout()}

@@ -4,7 +4,7 @@ import { CiFacebook } from "react-icons/ci";
 import { FaTiktok } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className="flex p-5 bg-cyan-500 text-white px-40 gap-10 poppins-regular">
+    <footer className="flex p-5 bg-cyan-500 text-white px-40 gap-10 poppins-regular fixed bottom-0 w-full">
       <div className="flex flex-col gap-5">
         <p className="font-bold text-2xl">Contact Me</p>
         <div className="flex flex-col gap-2">

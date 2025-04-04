@@ -29,7 +29,7 @@ export default function Layout({ children }: LayoutProps) {
         <Navbar isDashboard={router.pathname.includes("/dashboard")} />
       )}
       <main className="content">{children}</main>
-      {<Footer />}
+      {showNavbar && <Footer />}
       {/* {showFooter && <Footer />} */}
     </>
   );

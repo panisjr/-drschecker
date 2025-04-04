@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { AuthProps } from "./types";
 import Link from "next/link";
 import Image from "next/image";
+import { UseUser } from "./UserHook";
 
-const SignUp: React.FC<AuthProps> = ({ users, setUsers }) => {
+const SignUp = () => {
+  const { users, setUsers } = UseUser();
   const [email, setEmail] = useState<string>("");
   const [firstname, setFirstname] = useState<string>("");
   const [lastname, setLastname] = useState<string>("");
@@ -12,6 +13,7 @@ const SignUp: React.FC<AuthProps> = ({ users, setUsers }) => {
 
   const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const foundUser = users.find((user) => user.email === email);
 
     if (foundUser) {

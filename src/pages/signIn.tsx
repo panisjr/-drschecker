@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { AuthProps } from "./types";
 import { UseUser } from "./UserHook";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-const SignIn: React.FC<AuthProps> = ({ users }) => {
+
+const SignIn = () => {
+  const { users } = UseUser();
+
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const router = useRouter();
