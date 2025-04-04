@@ -65,7 +65,9 @@ const SignUp: React.FC<AuthProps> = ({ users, setUsers }) => {
         <div className="flex items-start w-full">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/images/logo.png"
+              width={100}
+              height={100}
+              src={"/images/logo.png"}
               alt="Logo"
               className="cursor-pointer w-14 h-14"
             />

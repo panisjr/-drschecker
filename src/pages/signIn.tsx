@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { AuthProps} from "./types";
+import { AuthProps } from "./types";
 import { UseUser } from "./UserHook";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-
 const SignIn: React.FC<AuthProps> = ({ users }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const router = useRouter();
-
   // Getting the current logged in user
   const { setCurrentUser } = UseUser();
-
   const handleSignIn = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     const foundUser = users.find((user) => user.email === email);
@@ -58,12 +55,17 @@ const SignIn: React.FC<AuthProps> = ({ users }) => {
         {/* Logo */}
         <div className="flex items-start w-full">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/images/logo.png" className="cursor-pointer w-14 h-14" alt="logo" />
+            <Image
+              width={100}
+              height={100}
+              src={"/images/logo.png"}
+              alt="Logo"
+              className="cursor-pointer w-14 h-14"
+            />
             <p>Ramz</p>
           </Link>
         </div>
         <p className="font-bold text-2xl">Sign In</p>
-
         {/* Input Fields */}
         <div className="flex flex-col items-center gap-5">
           <div className="flex items-center gap-3">
@@ -93,7 +95,6 @@ const SignIn: React.FC<AuthProps> = ({ users }) => {
             </div>
           </div>
         </div>
-
         {/* Sign In Button */}
         <div className="w-full flex items-center justify-center border-b pb-8">
           <button
@@ -103,10 +104,9 @@ const SignIn: React.FC<AuthProps> = ({ users }) => {
             Sign In
           </button>
         </div>
-
         {/* Sign Up Link */}
         <div className="flex items-center gap-2">
-          <i>Don't have an account?</i>
+          <i>Don &#39; t have an account?</i>
           <Link href="/signUp" className="text-yellow-500">
             Sign Up
           </Link>
@@ -115,5 +115,4 @@ const SignIn: React.FC<AuthProps> = ({ users }) => {
     </div>
   );
 };
-
 export default SignIn;

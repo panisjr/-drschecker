@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
-import { UserContext } from "./UserContext"; // Adjust the path as necessary
+import { UserContext } from "./UserContext"; 
 
 export const UseUser = () => {
   const context = useContext(UserContext);
