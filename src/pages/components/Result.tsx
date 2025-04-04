@@ -45,7 +45,7 @@ const Result: React.FC<ScoreProps> = ({ score }) => {
             <p className="text-gray-100">Depression</p>
           </div>
         )}
-        {score >= 23 && (
+        {score >= 23 && score <= 100 && (
           <div className="p-2 border-l border-l-gray-300">
             <p className="text-2xl font-semibold">Very Severe</p>
             <p className="text-gray-100">Depression</p>

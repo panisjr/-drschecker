@@ -23,12 +23,9 @@ const Advice: React.FC<ScoreProps> = ({ score, selectedQuestion }) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
       const data = await response.json();
-      console.log("Generated Advice:", data.result);
       setAdvice(data.result);
     } catch (error) {
-      console.error("Error:", error);
       Swal.fire({
         icon: "error",
         title: "An unknown error occurred!",

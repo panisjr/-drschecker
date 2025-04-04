@@ -18,6 +18,7 @@ const Questions = () => {
   const [selectedQuestion, setSelectedQuestion] = useState<
     { question: string; choice: string; choiceIndex: number }[]
   >([]);
+  const [finalScore, setFinalScore] = useState<number>(0);
   const data = [
     {
       question: "Depression Mood",
@@ -122,7 +123,7 @@ const Questions = () => {
         "Querulous attitude",
         "Hypochondriacal delusions",
       ],
-      values: [0, 1, 2],
+      values: [0, 1, 2, 3, 4],
     },
     {
       question: "Weight loss",
@@ -172,7 +173,6 @@ const Questions = () => {
 
       setPoints(newPoints);
       setTotalScore(newPoints);
-      console.log("Selected question: ", selectedQuestion);
       return [
         ...prevSelected.filter((q) => q.question !== question.question),
         { question: question.question, choice, choiceIndex },
