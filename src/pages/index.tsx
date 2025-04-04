@@ -1,8 +1,27 @@
 import Image from "next/image";
+import { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 export default function Home() {
+  const [firstname, setFirstname] = useState<string>("");
+  const [lastname, setLastname] = useState<string>("");
+  const [view, setView] = useState<boolean>(false);
+
+  const addUser = async (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("/api/addUser", {
+        method: "POST",
+        body: JSON.stringify({ firstname, lastname }),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log("An error occurred: ", error);
+    }
+  };
+
   return (
-    <div className="h-screen flex flex-col items-center justify-center px-20 pt-10 gap-5">
+    <div className="w-screen h-screen flex flex-col items-center justify-center px-20 pt-5 gap-5">
       <div>
         <h1 className="text-3xl font-bold">
           <Typewriter
