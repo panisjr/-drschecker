@@ -46,9 +46,95 @@ const Questions = () => {
     },
     {
       question: "Delayed insomnia",
+      description: "Absence from work after treatment or recovery may rate <4",
+      choices: [
+        "No difficulty",
+        "Feelings of incapacity, listlessness, indecision, and vacillation",
+        "Loss of interest in hobbies, decreased social activities",
+        "Productivity decreased",
+        "Unable to work, stopped working because of present illness only (if absent from work after treatment or recovery may rate a lower score)",
+      ],
+      values: [0, 1, 2, 3, 4],
+    },
+    {
+      question: "Retardation",
+      description: "Slowness of thought, speech, and activity; apathy; stupor",
+      choices: [
+        "Absent",
+        "Slight retardation at interview",
+        "Obvious retardation at interview",
+        "Interview difficult",
+        "Complete stupor",
+      ],
+      values: [0, 1, 2, 3, 4],
+    },
+    {
+      question: "Agitation",
+      description: "Restlessness associated with anxiety",
+      choices: ["Absent", "Mild", "Severe"],
+      values: [0, 1, 2],
+    },
+    {
+      question: "Psychiatric anxiety",
+      description: "",
+      choices: [
+        "Absent",
+        "Tension and irritability",
+        "Worrying about minor matters",
+        "Apprehensive attitude",
+        "Fears",
+      ],
+      values: [0, 1, 2, 3, 4],
+    },
+    {
+      question: "Somatic anxiety",
       description:
-        "Waking in early hours of the morning and unable to fall asleep again",
-      choices: ["Absent", "Occasional", "Frequent"],
+        "Gastrointestinal, indigestion, cardiovascular, palpitations, headaches, respiratory, genitourinary, etc.",
+      choices: ["Absent", "Mild", "Moderate", "Severe", "Incapacitating"],
+      values: [0, 1, 2, 3, 4],
+    },
+    {
+      question: "Gastrointestinal somatic symptoms",
+      description: "Loss of appetite, heavy feeling in abdomen, constipation",
+      choices: ["Absent", "Mild", "Severe"],
+      values: [0, 1, 2],
+    },
+    {
+      question: "General somatic symptoms",
+      description:
+        "Heaviness in limbs, back, or head; diffuse backache; loss of energy and fatigability",
+      choices: ["Absent", "Mild", "Severe"],
+      values: [0, 1, 2],
+    },
+    {
+      question: "Genital symptoms",
+      description: "Loss of libido, menstrual disturbances",
+      choices: ["Absent", "Mild", "Severe"],
+      values: [0, 1, 2],
+    },
+    {
+      question: "Hypochondriasis",
+      description: "Loss of libido, menstrual disturbances",
+      choices: [
+        "Not Present",
+        "Bodily self-absorption",
+        "Preoccupation with health",
+        "Querulous attitude",
+        "Hypochondriacal delusions",
+      ],
+      values: [0, 1, 2],
+    },
+    {
+      question: "Weight loss",
+      description: "Loss of libido, menstrual disturbances",
+      choices: ["Not Present", "Slight", "Obvious or severe"],
+      values: [0, 1, 2],
+    },
+    {
+      question: "Insight",
+      description:
+        "Must be interpreted in terms of patient’s understanding and background",
+      choices: ["No Loss", "Partial or doubtful loss", "Loss of insight"],
       values: [0, 1, 2],
     },
   ];
