@@ -18,7 +18,6 @@ const Questions = () => {
   const [selectedQuestion, setSelectedQuestion] = useState<
     { question: string; choice: string; choiceIndex: number }[]
   >([]);
-  const [finalScore, setFinalScore] = useState<number>(0);
   const data = [
     {
       question: "Depression Mood",
