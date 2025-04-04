@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
-import { UseUser } from "../UserHook";
+import { UseUser } from "../_app";
 interface NavbarProps {
   isDashboard: boolean;
 }

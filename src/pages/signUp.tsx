@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import Link from "next/link";
 import Image from "next/image";
-import { UseUser } from "./UserHook";
+import { UseUser } from "./_app";
 
 const SignUp = () => {
   const { users, setUsers } = UseUser();
