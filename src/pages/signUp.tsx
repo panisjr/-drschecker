@@ -2,6 +2,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { AuthProps } from "./types";
 import Link from "next/link";
+import Image from "next/image";
 
 const signUp: React.FC<AuthProps> = ({ users, setUsers }) => {
   const [email, setEmail] = useState<string>("");
@@ -63,7 +64,7 @@ const signUp: React.FC<AuthProps> = ({ users, setUsers }) => {
         {/* Logo */}
         <div className="flex items-start w-full">
           <Link href="/" className="flex items-center gap-3">
-            <img
+            <Image
               src="/images/logo.png"
               alt="Logo"
               className="cursor-pointer w-14 h-14"

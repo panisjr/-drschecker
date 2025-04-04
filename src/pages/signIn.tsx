@@ -4,6 +4,7 @@ import { AuthProps} from "./types";
 import { useUser } from "./UserHook";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 
 const signIn: React.FC<AuthProps> = ({ users }) => {
   const [email, setEmail] = useState<string>("");
@@ -57,7 +58,7 @@ const signIn: React.FC<AuthProps> = ({ users }) => {
         {/* Logo */}
         <div className="flex items-start w-full">
           <Link href="/" className="flex items-center gap-3">
-            <img src="/images/logo.png" className="cursor-pointer w-14 h-14" />
+            <Image src="/images/logo.png" className="cursor-pointer w-14 h-14" alt="logo" />
             <p>Ramz</p>
           </Link>
         </div>

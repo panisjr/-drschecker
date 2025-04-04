@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { ScoreProps } from "./Result";
-import { marked } from "marked";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import AdviceModal from "./AdviceModal";
+import Swal from "sweetalert2";
 
 const Advice: React.FC<ScoreProps> = ({ score, selectedQuestion }) => {
   const [advice, setAdvice] = useState<string>("");
@@ -34,6 +34,11 @@ const Advice: React.FC<ScoreProps> = ({ score, selectedQuestion }) => {
       setError(
         error instanceof Error ? error.message : "An unknown error occurred."
       );
+      Swal.fire({
+        icon: "error",
+        title: "An unknown error occurred!",
+        text: `${error}`,
+      });
     } finally {
       setLoading(false);
     }
@@ -98,9 +103,7 @@ const Advice: React.FC<ScoreProps> = ({ score, selectedQuestion }) => {
         )}
       </div>
 
-     
-          <AdviceModal score={score} advice={advice} />
-      
+      <AdviceModal score={score} advice={advice} />
     </div>
   );
 };

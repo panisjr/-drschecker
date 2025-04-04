@@ -23,7 +23,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             const response = await result.response;
             console.log("Raw response object:", JSON.stringify(response, null, 2));
 
-            let text = response?.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
+            const text = response?.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
 
             const advice = marked(text);
 
