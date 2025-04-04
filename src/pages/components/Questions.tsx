@@ -18,7 +18,7 @@ const Questions = () => {
   const [selectedQuestion, setSelectedQuestion] = useState<
     { question: string; choice: string; choiceIndex: number }[]
   >([]);
-  const [data, setData] = useState<QuestionProps[]>([
+  const data = [
     {
       question: "Depression Mood",
       description:
@@ -51,7 +51,7 @@ const Questions = () => {
       choices: ["Absent", "Occasional", "Frequent"],
       values: [0, 1, 2],
     },
-  ]);
+  ];
 
   const handleSelectedItem = (
     question: QuestionProps,
@@ -133,7 +133,7 @@ const Questions = () => {
             </div>
           </div>
         ))}
-      <Result score={totalScore}/>
+      <Result score={totalScore} />
       <Advice score={totalScore} selectedQuestion={selectedQuestion} />
     </div>
   );

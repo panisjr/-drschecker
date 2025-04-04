@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 export interface ScoreProps {
   score: number;
@@ -12,8 +11,6 @@ export interface ScoreProps {
 }
 
 const Result: React.FC<ScoreProps> = ({ score }) => {
-  const [loading, setLoading] = useState<boolean>(false);
-
   return (
     <div className="flex flex-col items-start px-10 py-3 bg-cyan-500 text-white gap-5 poppins-regular rounded-md sticky bottom-2">
       <div className="flex items-start gap-10">
