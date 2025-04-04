@@ -7,11 +7,9 @@ import Swal from "sweetalert2";
 const Advice: React.FC<ScoreProps> = ({ score, selectedQuestion }) => {
   const [advice, setAdvice] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
 
   const generateAdvice = async (prompt: string) => {
     setLoading(true);
-    setError(null);
 
     try {
       const response = await fetch("/api/generateAdvice", {
@@ -31,9 +29,6 @@ const Advice: React.FC<ScoreProps> = ({ score, selectedQuestion }) => {
       setAdvice(data.result);
     } catch (error) {
       console.error("Error:", error);
-      setError(
-        error instanceof Error ? error.message : "An unknown error occurred."
-      );
       Swal.fire({
         icon: "error",
         title: "An unknown error occurred!",

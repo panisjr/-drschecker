@@ -1,18 +1,18 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { AuthProps} from "./types";
-import { useUser } from "./UserHook";
+import { UseUser } from "./UserHook";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 
-const signIn: React.FC<AuthProps> = ({ users }) => {
+const SignIn: React.FC<AuthProps> = ({ users }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const router = useRouter();
 
   // Getting the current logged in user
-  const { setCurrentUser } = useUser();
+  const { setCurrentUser } = UseUser();
 
   const handleSignIn = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
@@ -116,4 +116,4 @@ const signIn: React.FC<AuthProps> = ({ users }) => {
   );
 };
 
-export default signIn;
+export default SignIn;

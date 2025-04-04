@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { AuthProps } from "./types";
 import Link from "next/link";
 import Image from "next/image";
 
-const signUp: React.FC<AuthProps> = ({ users, setUsers }) => {
+const SignUp: React.FC<AuthProps> = ({ users, setUsers }) => {
   const [email, setEmail] = useState<string>("");
   const [firstname, setFirstname] = useState<string>("");
   const [lastname, setLastname] = useState<string>("");
@@ -168,4 +168,4 @@ const signUp: React.FC<AuthProps> = ({ users, setUsers }) => {
   );
 };
 
-export default signUp;
+export default SignUp;
