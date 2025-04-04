@@ -29,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
     <>
       {!isDashboard ? (
         <>
-          <div className="w-screen flex items-center justify-around p-5 poppins-regular border-b border-b-slate-900 fixed">
+          <div className="w-screen flex items-center justify-around p-5 poppins-regular fixed bg-cyan-500/50 text-white z-10">
             <div className="px-2 flex items-center gap-5">
               <Image
                 src={"/images/logo.png"}
@@ -56,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
         </>
       ) : (
         <>
-          <div className="w-screen flex items-center justify-around p-5 poppins-regular fixed bg-cyan-500/50 text-white">
+          <div className="w-screen flex items-center justify-around p-5 poppins-regular fixed bg-cyan-500/50 text-white z-10">
             <div className="px-2 flex items-center gap-5">
               <Link href={"/"} className="flex items-center gap-3">
                 <Image

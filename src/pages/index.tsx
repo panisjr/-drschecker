@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center px-20 pt-40 gap-5">
+    <div className="h-screen flex flex-col items-center justify-center px-20 pt-10 gap-5">
       <div>
         <h1 className="text-3xl font-bold">
           <Typewriter
@@ -21,7 +21,7 @@ export default function Home() {
         </h1>
       </div>
       <div className="flex items-center gap-5">
-        <div className="relative w-[430px] max-w-[430px] aspect-[430/310.41] flex flex-col justify-around">
+        <div className="relative w-[530px] max-w-[530px] aspect-[530/410.41] flex flex-col justify-around">
           <Image
             src={"/images/depression1.jpg"}
             className="rounded-md"

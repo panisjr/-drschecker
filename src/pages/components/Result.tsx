@@ -12,7 +12,7 @@ export interface ScoreProps {
 
 const Result: React.FC<ScoreProps> = ({ score }) => {
   return (
-    <div className="flex flex-col items-start px-10 py-3 bg-cyan-500 text-white gap-5 poppins-regular rounded-md sticky bottom-2">
+    <div className="flex flex-col items-start px-10 py-3 bg-cyan-500 text-white gap-5 poppins-regular rounded-md sticky bottom-5">
       <div className="flex items-start gap-10">
         <div className="p-2">
           <div className="flex items-center gap-2">
