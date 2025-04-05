@@ -5,7 +5,7 @@ export default function Home() {
 
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center px-20 pt-5 gap-5">
-      <div>
+      <div className="w-full flex items-center justify-center">
         <h1 className="text-3xl font-bold">
           <Typewriter
             words={[
@@ -22,7 +22,7 @@ export default function Home() {
           />
         </h1>
       </div>
-      <div className="flex items-center gap-5">
+      <div className="flex flex-wrap-reverse md:flex-nowrap items-center justify-center gap-5 border w-full">
         <div className="relative w-[530px] max-w-[530px] aspect-[530/410.41] flex flex-col justify-around">
           <Image
             src={"/images/depression1.jpg"}
