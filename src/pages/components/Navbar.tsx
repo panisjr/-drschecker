@@ -29,8 +29,8 @@ const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
     <>
       {!isDashboard ? (
         <>
-          <div className="w-full flex items-center justify-around p-5 poppins-regular fixed bg-cyan-500/50 text-white z-10 md:w-screen">
-            <div className="px-2 flex items-center gap-5">
+          <div className="w-full flex items-center justify-around p-3 poppins-regular fixed bg-cyan-500/50 text-white z-10 md:w-screen">
+            <Link href={"/"} className="flex items-center gap-3">
               <Image
                 src={"/images/logo.png"}
                 alt="Logo"
@@ -38,16 +38,18 @@ const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
                 height={40}
                 className="cursor-pointer"
               />
-              <div className="px-2 flex items-center justify-center gap-5">
-                <p className="cursor-pointer">Home</p>
-                <p className="cursor-pointer">About</p>
-              </div>
-            </div>
+              <p className="md:text-2xl font-bold">DRSchecker</p>
+            </Link>
             <div className="flex items-center gap-3">
-              <Link href={"/signIn"} className="cursor-pointer">Sign In</Link>
+              <Link
+                href={"/signIn"}
+                className="cursor-pointer md:text-[16px] text-[14px]"
+              >
+                Sign In
+              </Link>
               <Link
                 href={"/signUp"}
-                className="bg-slate-900 p-3 rounded-md text-white cursor-pointer border border-slate-900 hover:bg-white hover:text-slate-900  duration-300"
+                className="md:text-[16px] text-[14px] bg-slate-900 p-3 rounded-md text-white cursor-pointer border border-slate-900 hover:bg-white hover:text-slate-900  duration-300"
               >
                 Sign Up
               </Link>
