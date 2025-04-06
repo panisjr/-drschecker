@@ -30,7 +30,12 @@ const Footer = () => {
           >
             <CiFacebook className="w-8 h-8" />
           </a>
-          <FaTiktok className="w-7 h-7" />
+          <a
+            href="https://www.tiktok.com/@h.o.p.e.01"
+            className="cursor-pointer"
+          >
+            <FaTiktok className="w-7 h-7" />
+          </a>
         </div>
       </div>
     </footer>
