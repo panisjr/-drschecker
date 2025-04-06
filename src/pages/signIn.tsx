@@ -52,7 +52,7 @@ const SignIn = () => {
     <div className="w-screen h-screen flex items-center justify-center poppins-regular">
       <form
         onSubmit={handleSignIn}
-        className="md:w-fit w-[400px] flex flex-col items-center justify-center border border-slate-300 shadow-lg shadow-slate-500 rounded-md p-10 gap-10"
+        className="md:w-fit w-[400px] flex flex-col items-center justify-center md:border md:border-slate-300 md:shadow-lg md:shadow-slate-500 rounded-md p-10 gap-10"
       >
         {/* Logo */}
         <div className="flex items-start w-full">
@@ -64,12 +64,12 @@ const SignIn = () => {
               alt="Logo"
               className="cursor-pointer w-14 h-14"
             />
-            <p>Ramz</p>
+            <p className="font-semibold">DRSchecker</p>
           </Link>
         </div>
         <p className="font-bold text-2xl">Sign In</p>
         {/* Input Fields */}
-        <div className="flex flex-col items-center gap-5">
+        <div className="flex flex-col w-full items-center gap-3">
           {/* Email */}
           <div className="flex flex-col w-full flex-wrap md:flex-nowrap gap-3">
             <div className="flex items-center gap-3 w-full">
@@ -115,7 +115,7 @@ const SignIn = () => {
           </button>
         </div>
         {/* Sign Up Link */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 text-[14px] md:text-[16px]">
           <i>Don &#39; t have an account?</i>
           <Link href="/signUp" className="text-yellow-500">
             Sign Up

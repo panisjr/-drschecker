@@ -62,7 +62,7 @@ const SignUp = () => {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center poppins-regular">
-      <div className="md:w-fit w-[400px] flex flex-col items-center justify-center border border-slate-300 shadow-lg shadow-slate-500 rounded-md p-10 gap-10">
+      <div className="md:w-fit w-[400px] flex flex-col items-center justify-center md:border md:border-slate-300 md:shadow-lg md:shadow-slate-500 rounded-md p-10 gap-10">
         {/* Logo */}
         <div className="flex items-start w-full">
           <Link href="/" className="flex items-center gap-3">
@@ -73,7 +73,7 @@ const SignUp = () => {
               alt="Logo"
               className="cursor-pointer w-14 h-14"
             />
-            <p>Ramz</p>
+            <p className="font-semibold">DRSchecker</p>
           </Link>
         </div>
         <p className="font-bold text-2xl w-full flex items-center justify-center">
@@ -164,7 +164,7 @@ const SignUp = () => {
         </form>
 
         {/* Sign In Link */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 text-[14px] md:text-[16px]">
           <i>Already have an account?</i>
           <Link href="/signIn" className="text-yellow-500">
             Sign In
