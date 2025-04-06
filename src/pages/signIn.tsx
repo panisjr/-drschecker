@@ -52,7 +52,7 @@ const SignIn = () => {
     <div className="w-screen h-screen flex items-center justify-center poppins-regular">
       <form
         onSubmit={handleSignIn}
-        className="flex flex-col items-center justify-center border border-slate-300 shadow-lg shadow-slate-500 rounded-md p-10 gap-10"
+        className="md:w-fit w-[400px] flex flex-col items-center justify-center border border-slate-300 shadow-lg shadow-slate-500 rounded-md p-10 gap-10"
       >
         {/* Logo */}
         <div className="flex items-start w-full">
@@ -70,30 +70,38 @@ const SignIn = () => {
         <p className="font-bold text-2xl">Sign In</p>
         {/* Input Fields */}
         <div className="flex flex-col items-center gap-5">
-          <div className="flex items-center gap-3">
-            <div className="border-b px-3 py-2 flex items-center gap-3">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="outline-none"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+          {/* Email */}
+          <div className="flex flex-col w-full flex-wrap md:flex-nowrap gap-3">
+            <div className="flex items-center gap-3 w-full">
+              <div className="w-full border rounded-md px-3 py-2 flex items-center gap-3">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="outline-none"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  autoComplete="off"
+                />
+              </div>
             </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="border-b px-3 py-2 flex items-center gap-3">
-              <input
-                type="password"
-                name="password"
-                id="password"
-                className="outline-none"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+            {/* Password */}
+            <div className="w-full flex items-center gap-3">
+              <div className="w-full border rounded-md px-3 py-2 flex items-center gap-3">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  className="outline-none"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  autoComplete="off"
+                />
+              </div>
             </div>
           </div>
         </div>

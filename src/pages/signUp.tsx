@@ -62,7 +62,7 @@ const SignUp = () => {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center poppins-regular">
-      <div className="flex flex-col items-center justify-center border border-slate-300 shadow-lg shadow-slate-500 rounded-md p-10 gap-10">
+      <div className="md:w-fit w-[400px] flex flex-col items-center justify-center border border-slate-300 shadow-lg shadow-slate-500 rounded-md p-10 gap-10">
         {/* Logo */}
         <div className="flex items-start w-full">
           <Link href="/" className="flex items-center gap-3">
@@ -82,11 +82,11 @@ const SignUp = () => {
         <p>Create your account</p>
         {/* Input Fields */}
         <form onSubmit={handleSignUp}>
-          <div className="flex flex-col items-center gap-5">
-            <div className="flex gap-2">
+          <div className="flex flex-col items-center gap-3 text-[14px] md:text-[16px]">
+            <div className="flex flex-wrap md:flex-nowrap w-full gap-3">
               {/* First Name */}
-              <div className="flex items-center gap-3">
-                <div className="border rounded-md px-3 py-2 flex items-center gap-3">
+              <div className="flex items-center gap-3 w-full">
+                <div className="border rounded-md px-3 py-2 flex items-center gap-3 w-full">
                   <input
                     type="text"
                     name="firstname"
@@ -101,8 +101,8 @@ const SignUp = () => {
                 </div>
               </div>
               {/* Last Name */}
-              <div className="flex items-center gap-3">
-                <div className="border rounded-md px-3 py-2 flex items-center gap-3">
+              <div className="flex items-center gap-3 w-full">
+                <div className="border rounded-md px-3 py-2 flex items-center gap-3 w-full">
                   <input
                     type="text"
                     name="lastname"
@@ -117,35 +117,38 @@ const SignUp = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-3 w-full">
-              <div className="w-full border rounded-md px-3 py-2 flex items-center gap-3">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="outline-none"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  autoComplete="off"
-                />
+            {/* Email */}
+            <div className="flex flex-col w-full flex-wrap md:flex-nowrap gap-3">
+              <div className="flex items-center gap-3 w-full">
+                <div className="w-full border rounded-md px-3 py-2 flex items-center gap-3">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="outline-none"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    autoComplete="off"
+                  />
+                </div>
               </div>
-            </div>
-            {/* Password */}
-            <div className="w-full flex items-center gap-3">
-              <div className="w-full border rounded-md px-3 py-2 flex items-center gap-3">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  className="outline-none"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  autoComplete="off"
-                />
+              {/* Password */}
+              <div className="w-full flex items-center gap-3">
+                <div className="w-full border rounded-md px-3 py-2 flex items-center gap-3">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    className="outline-none"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    autoComplete="off"
+                  />
+                </div>
               </div>
             </div>
           </div>

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="w-screen h-full flex flex-col items-center justify-center md:px-20 py-50 md:pt-5 gap-5">
       <div className="w-full flex items-center justify-center">
-        <h1 className="text-sm md:text-3xl font-bold">
+        <h1 className="text-[16px] md:text-3xl font-bold">
           <Typewriter
             words={[
               "Hi, I'm Ramel!",
