@@ -1,8 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-interface ResponseData {
-  message: string;
-}
 export default function addUser(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (req.method === "POST") {
