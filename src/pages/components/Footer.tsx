@@ -22,19 +22,19 @@ const Footer = () => {
             href="https://www.instagram.com/ramz_panisjr/"
             className="cursor-pointer"
           >
-            <FaInstagram className="w-8 h-8" />
+            <FaInstagram className="md:w-8 md:h-8 w-5 h-5" />
           </a>
           <a
             href="https://www.facebook.com/ramel.panis.1"
             className="cursor-pointer"
           >
-            <CiFacebook className="w-8 h-8" />
+            <CiFacebook className="md:w-8 md:h-8 w-5 h-5" />
           </a>
           <a
             href="https://www.tiktok.com/@h.o.p.e.01"
             className="cursor-pointer"
           >
-            <FaTiktok className="w-7 h-7" />
+            <FaTiktok className="md:w-7 md:h-7 w-5 h-5" />
           </a>
         </div>
       </div>
