@@ -69,7 +69,7 @@ const SignIn = () => {
         </div>
         <p className="font-bold text-2xl">Sign In</p>
         {/* Input Fields */}
-        <div className="flex flex-col w-full items-center gap-3">
+        <div className="flex flex-col w-full items-center justify-center gap-3">
           {/* Email */}
           <div className="flex flex-col w-full flex-wrap md:flex-nowrap gap-3">
             <div className="flex items-center gap-3 w-full">
