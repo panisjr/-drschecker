@@ -68,12 +68,12 @@ const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
                   height={40}
                   className="cursor-pointer w-6 h-6 md:w-10 md:h-10"
                 />
-                <p className="text-[16px] md:text-2xl font-bold">DRSchecker</p>
+                <p className="text-[18px] md:text-2xl font-bold">DRSchecker</p>
               </Link>
             </div>
-            <div className="flex w-full items-center justify-center text-[12px] md:text-[16px]">
+            <div className="flex w-full items-center justify-center text-[16px] md:text-[16px]">
               <div className="w-fit md:w-full px-2 flex items-start justify-start gap-5">
-                <p className="cursor-pointer text-[12px] md:text-[16px]">
+                <p className="cursor-pointer">
                   Dashboard
                 </p>
               </div>
