@@ -58,36 +58,40 @@ const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
         </>
       ) : (
         <>
-          <div className="w-screen flex items-center justify-around p-5 poppins-regular fixed bg-cyan-500/50 text-white z-10">
-            <div className="px-2 flex items-center gap-5">
+          <div className="w-screen flex md:flex-nowrap flex-wrap items-center justify-around p-5 poppins-regular fixed bg-cyan-500/50 text-white z-10">
+            <div className="px-2 flex items-center gap-5 w-full">
               <Link href={"/"} className="flex items-center gap-3">
                 <Image
                   src={"/images/logo.png"}
                   alt="Logo"
                   width={40}
                   height={40}
-                  className="cursor-pointer"
+                  className="cursor-pointer w-6 h-6 md:w-10 md:h-10"
                 />
-                <p className="text-2xl font-bold">DRSchecker</p>
+                <p className="text-[12px] md:text-2xl font-bold">DRSchecker</p>
               </Link>
-              <div className="px-2 flex items-center justify-center gap-5">
-                <p className="cursor-pointer">Dashboard</p>
-              </div>
             </div>
-            <div className="flex items-center gap-3">
-              <p>Welcome, {currentUser?.firstname || "Guest"} !</p>
-              <div
-                className="relative inset-0 w-12 h-12 cursor-pointer"
-                onClick={() => logout()}
-              >
-                <Image
-                  src={"/images/profile.jpg"}
-                  fill
-                  priority
-                  sizes="(max-width: 20px), 100vw, 20px"
-                  alt="Profile Picture"
-                  className="object-cover rounded-full"
-                />
+            <div className="flex w-full items-center justify-center text-[12px] md:text-[16px]">
+              <div className="w-fit md:w-full px-2 flex items-start justify-start gap-5">
+                <p className="cursor-pointer text-[12px] md:text-[16px]">
+                  Dashboard
+                </p>
+              </div>
+              <div className="flex items-center justify-end gap-3 w-full">
+                <p>Welcome, {currentUser?.firstname || "Guest"} !</p>
+                <div
+                  className="relative inset-0 w-10 h-10 md:w-12 md:h-12 cursor-pointer"
+                  onClick={() => logout()}
+                >
+                  <Image
+                    src={"/images/profile.jpg"}
+                    fill
+                    priority
+                    sizes="(max-width: 20px), 100vw, 20px"
+                    alt="Profile Picture"
+                    className="object-cover rounded-full"
+                  />
+                </div>
               </div>
             </div>
           </div>
