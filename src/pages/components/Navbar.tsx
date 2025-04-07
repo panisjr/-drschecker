@@ -66,7 +66,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDashboard }) => {
                   alt="Logo"
                   width={40}
                   height={40}
-                  className="cursor-pointer w-6 h-6 md:w-10 md:h-10"
+                  className="cursor-pointer w-8 h-8 md:w-10 md:h-10"
                 />
                 <p className="text-[18px] md:text-2xl font-bold">DRSchecker</p>
               </Link>

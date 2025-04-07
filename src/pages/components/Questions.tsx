@@ -187,7 +187,7 @@ const Questions = () => {
             key={item.question}
             className="w-full max-w-[900px] flex items-center justify-center poppins-regular p-5 border-b-2 border-gray-200"
           >
-            <div className="w-full md:flex-nowrap flex flex-wrap items-center justify-between gap-3">
+            <div className="w-full md:flex-nowrap flex flex-wrap items-center justify-between gap-3 p-5 md:p-10">
               <div className="flex flex-col w-full p-2 bg-white">
                 <p className="font-semibold">{item.question}</p>
                 <p className="text-gray-600 pl-5">{item.description}</p>
@@ -201,7 +201,7 @@ const Questions = () => {
                           handleSelectedItem(item, choice, choiceIndex)
                         }
                         aria-label={`Select ${choice}`}
-                        className={`w-full flex items-center justify-between px-5 py-3 border-b border-b-gray-400 hover:bg-cyan-100 cursor-pointer 
+                        className={`text-[14px] md:text-[16px] w-full flex items-center justify-between px-5 py-3 border-b border-b-gray-400 hover:bg-cyan-100 cursor-pointer 
                     ${
                       selectedItems[item.question] === choice
                         ? "bg-cyan-100"
