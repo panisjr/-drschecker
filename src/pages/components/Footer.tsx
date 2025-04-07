@@ -9,7 +9,7 @@ const Footer = () => {
         <p className="font-bold md:text-2xl">Contact Me</p>
         <div className="flex flex-col gap-2">
           <span className="flex items-center gap-2">
-            <label htmlFor="email" className="md:text-[16px] text-[14px]">Email:</label>
+            <label htmlFor="email" className="md:text-[16px] text-[14px] font-semibold">Email:</label>
             <p className="md:text-[16px] text-[14px]">ramelopanisjr.06@gmail.com</p>
           </span>
           <p>09608757182</p>
