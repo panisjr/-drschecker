@@ -21,14 +21,15 @@ const Advice: React.FC<ScoreProps> = ({ score, selectedQuestion }) => {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        // throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`Make sure you have an internet connection.`);
       }
       const data = await response.json();
       setAdvice(data.result);
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "An unknown error occurred!",
+        title: "Internet connection failed!",
         text: `${error}`,
       });
     } finally {

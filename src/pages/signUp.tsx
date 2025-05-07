@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import Link from "next/link";
 import Image from "next/image";
 import { UseUser } from "./_app";
+import { useRouter } from "next/router";
 
 const SignUp = () => {
   const { users, setUsers } = UseUser();
@@ -11,6 +12,7 @@ const SignUp = () => {
   const [lastname, setLastname] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const router = useRouter();
   const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -51,18 +53,33 @@ const SignUp = () => {
             day: "2-digit",
             year: "numeric",
           }),
+          role: "",
         },
       ]);
       setFirstname("");
       setLastname("");
       setEmail("");
       setPassword("");
+      router.push("/signIn");
     }
   };
 
   return (
     <div className="w-screen h-screen flex items-center justify-center poppins-regular">
-      <div className="md:w-fit w-[400px] flex flex-col items-center justify-center md:border md:border-slate-300 md:shadow-lg md:shadow-slate-500 rounded-md p-10 gap-10">
+      <div className="absolute inset-0">
+        <div className="relative w-full h-screen aspect-[3000/1988]">
+          <Image
+            src={"/images/bg1.jpg"}
+            sizes="(max-width: 3000px) 100vw, 1988"
+            className="object-cover"
+            alt="Landscape peaceful background"
+            fill
+            priority
+          />
+        </div>
+      </div>
+      <div className="bg-black/50 absolute inset-0"></div>
+      <div className="z-10 bg-white md:w-fit w-[400px] flex flex-col items-center justify-center md:border md:border-slate-300 md:shadow-lg rounded-md p-10 gap-10">
         {/* Logo */}
         <div className="flex items-start w-full">
           <Link href="/" className="flex items-center gap-3">

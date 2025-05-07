@@ -3,9 +3,11 @@ import Questions from "./components/Questions";
 
 const dashboard = () => {
   return (
-    <div>
-      <Questions />
-    </div>
+    <>
+      <div>
+        <Questions />
+      </div>
+    </>
   );
 };
 

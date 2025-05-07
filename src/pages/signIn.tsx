@@ -3,56 +3,90 @@ import Swal from "sweetalert2";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import { UseUser } from "./_app";
+import { User, UseUser } from "./_app";
 
+const userData: User = {
+  currentUserEmail: "admin@gmail.com",
+  email: "admin@gmail.com",
+  firstname: "Ramel",
+  lastname: "Panis",
+  password: "admin1234",
+  date: "August 2, 2002",
+  role: "admin",
+};
 const SignIn = () => {
   const { users } = UseUser();
-
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const router = useRouter();
+
   // Getting the current logged in user
   const { setCurrentUser } = UseUser();
   const handleSignIn = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    const foundUser = users.find((user) => user.email === email);
-    if (!foundUser) {
-      Swal.fire({
-        icon: "error",
-        title: "Signing In!",
-        text: "Can't find your account, make sure you fill the fields correctly.",
-      });
-    } else if (email === "") {
-      Swal.fire({
-        icon: "error",
-        title: "Signing In!",
-        text: "Email field is empty.",
-      });
-    } else if (password === "") {
-      Swal.fire({
-        icon: "error",
-        title: "Signing In!",
-        text: "Password field is empty.",
-      });
-    } else if (foundUser?.email != email || foundUser?.password != password) {
-      Swal.fire({
-        icon: "error",
-        title: "Signing In!",
-        text: "Your Email or Password is incorrect.",
-      });
-    }
-    if (foundUser?.email === email && foundUser?.password === password) {
-      setCurrentUser(foundUser);
-      router.push("/dashboard");
-      setEmail("");
-      setPassword("");
+    const foundAdmin = userData.email === email;
+
+    if (foundAdmin) {
+      if (userData.email != email || userData.password != password) {
+        Swal.fire({
+          icon: "error",
+          title: "Signing In!",
+          text: "Your Email or Password is incorrect.",
+        });
+      }
+      if (userData.role === "admin" && userData.password === password) {
+        setCurrentUser(userData);
+        setEmail("");
+        setPassword("");
+        router.push("/admin");
+      }
+    } else {
+      const foundUser = users.find((user) => user.email === email);
+      if (!foundUser) {
+        Swal.fire({
+          icon: "error",
+          title: "Signing In!",
+          text: "Can't find your account, make sure you fill the fields correctly.",
+        });
+      } else if (password === "") {
+        Swal.fire({
+          icon: "error",
+          title: "Signing In!",
+          text: "Password field is empty.",
+        });
+      } else if (foundUser?.email != email || foundUser?.password != password) {
+        Swal.fire({
+          icon: "error",
+          title: "Signing In!",
+          text: "Your Email or Password is incorrect.",
+        });
+      }
+      if (foundUser?.email === email && foundUser?.password === password) {
+        setCurrentUser(foundUser);
+        setEmail("");
+        setPassword("");
+        router.push("/users");
+      }
     }
   };
   return (
     <div className="w-screen h-screen flex items-center justify-center poppins-regular">
+      <div className="absolute inset-0">
+        <div className="relative w-full h-screen aspect-[3000/1988]">
+          <Image
+            src={"/images/bg1.jpg"}
+            sizes="(max-width: 3000px) 100vw, 1988"
+            className="object-cover"
+            alt="Landscape peaceful background"
+            fill
+            priority
+          />
+        </div>
+      </div>
+      <div className="bg-black/50 absolute inset-0"></div>
       <form
         onSubmit={handleSignIn}
-        className="md:w-fit w-[400px] flex flex-col items-center justify-center md:border md:border-slate-300 md:shadow-lg md:shadow-slate-500 rounded-md p-10 gap-10"
+        className="z-10 bg-white md:w-fit w-[400px] flex flex-col items-center justify-center md:border md:border-slate-300 md:shadow-lg rounded-md p-10 gap-10"
       >
         {/* Logo */}
         <div className="flex items-start w-full">
@@ -109,7 +143,7 @@ const SignIn = () => {
         <div className="w-full flex items-center justify-center border-b pb-8">
           <button
             type="submit"
-            className="flex items-center justify-center bg-yellow-500 border border-yellow-500 w-full py-2 rounded-md cursor-pointer hover:bg-white duration-300"
+            className="flex items-center justify-center bg-yellow-500 border border-yellow-500 w-full py-2 rounded-md cursor-pointer hover:bg-white hover:text-yellow-500 text-white duration-300"
           >
             Sign In
           </button>
