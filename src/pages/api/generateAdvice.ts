@@ -6,7 +6,7 @@ import { marked } from "marked";
 dotenv.config();
 
 const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY! || "AIzaSyCBftVwQ3kM4cZqZINi5ZLxMN18b2Mzz2U",
+  apiKey: process.env.GEMINI_API_KEY!,
 });
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
