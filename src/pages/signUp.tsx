@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { UseUser } from "./_app";
 import { useRouter } from "next/router";
+import { BsEye, BsEyeFill } from "react-icons/bs";
 
 const SignUp = () => {
   const { users, setUsers } = UseUser();
@@ -64,8 +65,13 @@ const SignUp = () => {
     }
   };
 
+  const [viewPassword, setViewPassword] = useState<string>("password");
+
+  const handleViewPassword = () => {
+    setViewPassword((prev) => (prev != "password" ? "password" : "text"));
+  };
   return (
-    <div className="w-screen h-screen flex items-center justify-center poppins-regular">
+    <div className="w-full h-screen flex items-center justify-center poppins-regular">
       <div className="absolute inset-0">
         <div className="relative w-full h-screen aspect-[3000/1988]">
           <Image
@@ -79,7 +85,7 @@ const SignUp = () => {
         </div>
       </div>
       <div className="bg-black/50 absolute inset-0"></div>
-      <div className="z-10 bg-white md:w-fit w-[400px] flex flex-col items-center justify-center md:border md:border-slate-300 md:shadow-lg rounded-md p-10 gap-10">
+      <div className="z-10 bg-white md:w-fit w-[400px] flex flex-col items-center justify-center md:border md:border-slate-300 md:shadow-lg rounded-md p-6 gap-10">
         {/* Logo */}
         <div className="flex items-start w-full">
           <Link href="/" className="flex items-center gap-3">
@@ -99,16 +105,16 @@ const SignUp = () => {
         <p>Create your account</p>
         {/* Input Fields */}
         <form onSubmit={handleSignUp}>
-          <div className="flex flex-col items-center gap-3 text-[14px] md:text-[16px]">
+          <div className="flex flex-col items-center justify-center gap-3 text-[14px] md:text-[16px]">
             <div className="flex flex-wrap md:flex-nowrap w-full gap-3">
               {/* First Name */}
-              <div className="flex items-center gap-3 w-full">
+              <div className="flex items-center gap-3 w-[200px]">
                 <div className="border rounded-md px-3 py-2 flex items-center gap-3 w-full">
                   <input
                     type="text"
                     name="firstname"
                     id="firstname"
-                    className="outline-none"
+                    className="outline-none text-sm"
                     placeholder="First Name"
                     value={firstname}
                     onChange={(e) => setFirstname(e.target.value)}
@@ -118,13 +124,13 @@ const SignUp = () => {
                 </div>
               </div>
               {/* Last Name */}
-              <div className="flex items-center gap-3 w-full">
+              <div className="flex items-center gap-3 w-[200px]">
                 <div className="border rounded-md px-3 py-2 flex items-center gap-3 w-full">
                   <input
                     type="text"
                     name="lastname"
                     id="lastname"
-                    className="outline-none"
+                    className="outline-none text-sm"
                     placeholder="Last Name"
                     value={lastname}
                     onChange={(e) => setLastname(e.target.value)}
@@ -142,7 +148,7 @@ const SignUp = () => {
                     type="email"
                     name="email"
                     id="email"
-                    className="outline-none"
+                    className="outline-none text-sm"
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -155,16 +161,27 @@ const SignUp = () => {
               <div className="w-full flex items-center gap-3">
                 <div className="w-full border rounded-md px-3 py-2 flex items-center gap-3">
                   <input
-                    type="password"
+                    type={viewPassword}
                     name="password"
                     id="password"
-                    className="outline-none"
+                    className="outline-none w-full text-sm"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     autoComplete="off"
                   />
+                  {viewPassword === "password" ? (
+                    <BsEye
+                      className="w-6 h-6 text-slate-800 cursor-pointer"
+                      onClick={() => handleViewPassword()}
+                    />
+                  ) : (
+                    <BsEyeFill
+                      className="w-6 h-6 text-blue-500 cursor-pointer"
+                      onClick={() => handleViewPassword()}
+                    />
+                  )}
                 </div>
               </div>
             </div>

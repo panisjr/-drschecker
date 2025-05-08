@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import { User, UseUser } from "./_app";
-
 const userData: User = {
   currentUserEmail: "admin@gmail.com",
   email: "admin@gmail.com",
@@ -86,7 +85,7 @@ const SignIn = () => {
       <div className="bg-black/50 absolute inset-0"></div>
       <form
         onSubmit={handleSignIn}
-        className="z-10 bg-white md:w-fit w-[400px] flex flex-col items-center justify-center md:border md:border-slate-300 md:shadow-lg rounded-md p-10 gap-10"
+        className="z-10 bg-white md:w-fit w-[400px] flex flex-col items-center justify-center md:border md:border-slate-300 md:shadow-lg rounded-md p-6 gap-10"
       >
         {/* Logo */}
         <div className="flex items-start w-full">
@@ -112,7 +111,7 @@ const SignIn = () => {
                   type="email"
                   name="email"
                   id="email"
-                  className="outline-none"
+                  className="outline-none text-sm"
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -128,7 +127,7 @@ const SignIn = () => {
                   type="password"
                   name="password"
                   id="password"
-                  className="outline-none"
+                  className="outline-none text-sm"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
